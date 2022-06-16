@@ -31,6 +31,7 @@
 #define RSH_DRIVER_NAME "RSH"
 #define TORQUE_DRIVER_NAME "TORQUE"
 #define SLURM_DRIVER_NAME "SLURM"
+#define HQ_DRIVER_NAME "HQ"
 
 typedef struct queue_config_struct queue_config_type;
 

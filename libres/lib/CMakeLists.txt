@@ -67,6 +67,7 @@ pybind11_add_module(
   job_queue/queue_driver.cpp
   job_queue/rsh_driver.cpp
   job_queue/slurm_driver.cpp
+  job_queue/hq_driver.cpp
   job_queue/torque_driver.cpp
   job_queue/workflow.cpp
   job_queue/workflow_job.cpp

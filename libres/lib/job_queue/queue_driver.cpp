@@ -27,6 +27,7 @@
 #include <ert/job_queue/rsh_driver.hpp>
 #include <ert/job_queue/slurm_driver.hpp>
 #include <ert/job_queue/torque_driver.hpp>
+#include <ert/job_queue/hq_driver.hpp>
 
 /*
    This file implements the datatype queue_driver_type which is an
@@ -288,6 +289,18 @@ static UTIL_SAFE_CAST_FUNCTION(queue_driver, QUEUE_DRIVER_ID)
         driver->get_status = slurm_driver_get_job_status;
         driver->data = slurm_driver_alloc();
         break;
+    case HQ_DRIVER:
+        driver->name = util_alloc_string_copy("HQ");
+        driver->set_option = hq_driver_set_option;
+        driver->get_option = hq_driver_get_option;
+        driver->init_options = hq_driver_init_option_list;
+        driver->free_driver = hq_driver_free__;
+        driver->kill_job = hq_driver_kill_job;
+        driver->free_job = hq_driver_free_job;
+        driver->submit = hq_driver_submit_job;
+        driver->get_status = hq_driver_get_job_status;
+        driver->data = hq_driver_alloc();
+        break;
     default:
         util_abort("%s: unrecognized driver type:%d \n", __func__, type);
     }
@@ -363,6 +376,11 @@ queue_driver_type *queue_driver_alloc_local() {
 
 queue_driver_type *queue_driver_alloc_slurm() {
     queue_driver_type *driver = queue_driver_alloc(SLURM_DRIVER);
+    return driver;
+}
+
+queue_driver_type *queue_driver_alloc_hq() {
+    queue_driver_type *driver = queue_driver_alloc(HQ_DRIVER);
     return driver;
 }
 

@@ -29,10 +29,11 @@ typedef enum {
     LOCAL_DRIVER = 2,
     RSH_DRIVER = 3,
     TORQUE_DRIVER = 4,
-    SLURM_DRIVER = 5
+    SLURM_DRIVER = 5,
+    HQ_DRIVER = 6
 } job_driver_type;
 
-#define JOB_DRIVER_ENUM_SIZE 5
+#define JOB_DRIVER_ENUM_SIZE 6
 
 // The options supported by the base queue_driver.
 #define MAX_RUNNING "MAX_RUNNING"
@@ -59,6 +60,8 @@ queue_driver_type *queue_driver_alloc_LSF(const char *queue_name,
 queue_driver_type *queue_driver_alloc_TORQUE();
 queue_driver_type *queue_driver_alloc_local();
 queue_driver_type *queue_driver_alloc_slurm();
+queue_driver_type *queue_driver_alloc_hq();
+
 extern "C" queue_driver_type *queue_driver_alloc(job_driver_type type);
 
 void *queue_driver_submit_job(queue_driver_type *driver, const char *run_cmd,
