@@ -29,6 +29,7 @@ class QueueDriverEnum(BaseCEnum):
     RSH_DRIVER = None
     TORQUE_DRIVER = None
     SLURM_DRIVER = None
+    HQ_DRIVER = None
 
 
 QueueDriverEnum.addEnum("NULL_DRIVER", 0)
@@ -37,13 +38,14 @@ QueueDriverEnum.addEnum("LOCAL_DRIVER", 2)
 QueueDriverEnum.addEnum("RSH_DRIVER", 3)
 QueueDriverEnum.addEnum("TORQUE_DRIVER", 4)
 QueueDriverEnum.addEnum("SLURM_DRIVER", 5)
+QueueDriverEnum.addEnum("HQ_DRIVER", 6)
 
 
 LSF_DRIVER = QueueDriverEnum.LSF_DRIVER
 RSH_DRIVER = QueueDriverEnum.RSH_DRIVER
 LOCAL_DRIVER = QueueDriverEnum.LOCAL_DRIVER
 SLURM_DRIVER = QueueDriverEnum.SLURM_DRIVER
-
+HQ_DRIVER = QueueDriverEnum.HQ_DRIVER
 
 class Driver(BaseCClass):
     TYPE_NAME = "driver"
