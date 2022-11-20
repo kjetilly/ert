@@ -89,7 +89,7 @@ setup(
         "packaging",
         "pandas",
         "pluggy",
-        "prefect",
+        "prefect==1.3.0",
         "psutil",
         "pydantic >= 1.9",
         "PyQt5",
