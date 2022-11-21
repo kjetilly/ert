@@ -121,6 +121,7 @@ setup(
         # everything not OS X. We depend on C++17, which makes our minimum
         # supported OS X release 10.15
         "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.15",
+        "-DCMAKE_BUILD_TYPE=Debug",
         f"-DPYTHON_EXECUTABLE={sys.executable}",
     ],
     cmake_source_dir="libres/",
