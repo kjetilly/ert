@@ -8,7 +8,7 @@ requires = [
     "cmake",
     "ninja",
     "ecl",
-    "conan==1.52.0",
+    "conan==1.61.0",
     "pybind11>=2.8.1"  # If this comes out of sync with the version installed by Conan please update the version in CMakeLists
 ]
 
